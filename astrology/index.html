@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Astrology Website Concept</title>
+<meta name="description" content="Concept homepage for an astrology brand: products, live courses and consultation booking. Concept by Luca, NewStartOperation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --kumkum:#5A1A2B;      /* deep sindoor maroon, base for the hero */
+  --kumkum-2:#47121F;
+  --haldi:#E8A317;       /* turmeric, the one accent */
+  --peacock:#0F5257;     /* secondary, for course and booking states */
+  --sandal:#F6E7D3;      /* page paper */
+  --sandal-2:#EED8BC;
+  --ink:#2A1A1F;
+  --ink-soft:#6B5257;
+  --line:#DCC3A4;
+  --white:#FFFDF9;
+  --radius-lg:22px; --radius-sm:8px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--sandal);color:var(--ink);font-family:"Mukta",system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--haldi);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:"Rozha One",Georgia,serif;font-weight:400;line-height:1.1}
+h2{font-size:clamp(30px,4.2vw,44px);margin-bottom:10px}
+h3{font-size:22px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+.lede{color:var(--ink-soft);max-width:56ch}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font:700 16px/1 "Mukta",sans-serif;padding:15px 22px;border-radius:999px;text-decoration:none;transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn-gold{background:var(--haldi);color:var(--kumkum-2)}
+.btn-ghost{background:transparent;color:var(--white);box-shadow:inset 0 0 0 1.5px rgba(255,253,249,.45)}
+.btn-ink{background:var(--kumkum);color:var(--white)}
+.btn-wa{background:#1F8A4C;color:#fff}
+
+/* concept ribbon */
+.ribbon{background:var(--ink);color:var(--sandal);font-size:14px;text-align:center;padding:8px 16px}
+.ribbon b{color:var(--haldi);font-weight:500}
+
+/* header */
+header{background:var(--kumkum);color:var(--white);position:sticky;top:0;z-index:20}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand svg{width:34px;height:34px}
+.brand span{font-family:"Rozha One",serif;font-size:22px;letter-spacing:.2px}
+.links{display:flex;gap:26px;list-style:none;font-size:16px}
+.links a{text-decoration:none;opacity:.85}
+.links a:hover{opacity:1;color:var(--haldi)}
+.cart{position:relative;background:none;border:0;color:var(--white);cursor:pointer;display:flex;align-items:center;gap:6px;font:500 15px "Mukta",sans-serif}
+.cart svg{width:24px;height:24px}
+.cart em{font-style:normal;background:var(--haldi);color:var(--kumkum-2);font-weight:700;min-width:22px;height:22px;border-radius:11px;display:grid;place-items:center;font-size:13px;padding:0 6px}
+.cart.bump em{animation:bump .4s}
+@keyframes bump{40%{transform:scale(1.35)}}
+
+/* hero */
+.hero{background:var(--kumkum);color:var(--white);overflow:hidden;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:64px 20px 80px}
+.hero h1{font-size:clamp(40px,6vw,72px);margin-bottom:22px}
+.hero p{font-size:19px;opacity:.88;max-width:46ch;margin-bottom:30px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.trust{display:flex;flex-wrap:wrap;gap:22px;margin-top:38px;font-size:15px;opacity:.8}
+.trust span{display:flex;align-items:center;gap:8px}
+.trust svg{width:18px;height:18px;color:var(--haldi)}
+
+/* kundli: the one bold element */
+.kundli-card{position:relative}
+.kundli{width:100%;max-width:470px;margin-left:auto;aspect-ratio:1}
+.kundli .frame{fill:none;stroke:var(--haldi);stroke-width:2.2}
+.kundli .grid{fill:none;stroke:var(--haldi);stroke-width:1.4;stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 2.4s .2s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.kundli text{font-family:"Mukta",sans-serif;fill:var(--sandal)}
+.kundli .house{font-size:11px;fill:rgba(246,231,211,.45)}
+.kundli .planet{font-size:15px;font-weight:700;fill:var(--haldi);opacity:0;animation:fade .6s ease forwards}
+.kundli .lagna{font-size:13px;fill:var(--sandal)}
+@keyframes fade{to{opacity:1}}
+.kundli-note{margin:14px 0 0 auto;max-width:470px;font-size:14px;opacity:.75;text-align:center}
+
+/* service paths */
+.paths{background:var(--sandal-2)}
+.paths-grid{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--line)}
+.path{padding:34px 28px;border-right:1px solid var(--line);text-decoration:none;display:flex;flex-direction:column;gap:8px}
+.path:hover h3{color:var(--kumkum)}
+.path svg{width:40px;height:40px;color:var(--kumkum);margin-bottom:6px}
+.path p{color:var(--ink-soft);font-size:16px}
+.path .go{margin-top:auto;font-weight:700;color:var(--kumkum);padding-top:8px}
+
+section.block{padding:84px 0}
+.head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:34px;flex-wrap:wrap}
+.head-row a{font-weight:700;color:var(--kumkum)}
+
+/* products */
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.product{background:var(--white);border-radius:var(--radius-lg);padding:14px 14px 18px;display:flex;flex-direction:column}
+.product .pic{border-radius:14px;aspect-ratio:1;display:grid;place-items:center;margin-bottom:14px}
+.product .pic svg{width:58%;height:58%}
+.product h3{font-size:19px;font-family:"Mukta",sans-serif;font-weight:700;line-height:1.3}
+.product .sub{font-size:15px;color:var(--ink-soft);margin-bottom:12px}
+.product .buy{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.price{font-weight:700;font-size:19px}
+.price s{display:block;font-weight:400;color:var(--ink-soft);font-size:14px;line-height:1}
+.add{white-space:nowrap;flex:0 0 auto;background:var(--kumkum);color:var(--white);border:0;border-radius:999px;padding:9px 15px;font:700 14px "Mukta",sans-serif;cursor:pointer}
+.add.done{background:var(--peacock)}
+
+/* courses */
+.courses-sec{background:var(--white)}
+.courses{display:grid;gap:0;border-top:1px solid var(--line)}
+.course{display:grid;grid-template-columns:120px 1fr auto;gap:28px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line)}
+.date{font-family:"Rozha One",serif;color:var(--peacock);line-height:1}
+.date b{display:block;font-size:42px;font-weight:400}
+.date span{font-family:"Mukta",sans-serif;font-size:15px;color:var(--ink-soft)}
+.course h3{margin-bottom:6px}
+.course p{color:var(--ink-soft);font-size:16px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.tag{font-size:14px;padding:3px 11px;border-radius:999px;background:#E3EFEE;color:var(--peacock);font-weight:500}
+.course .side{text-align:right}
+.course .side .price{display:block;margin-bottom:8px}
+.seats{font-size:14px;color:var(--kumkum);display:block;margin-top:6px}
+
+/* booking */
+.booking{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}
+.panel{background:var(--white);border-radius:var(--radius-lg);padding:28px;border:1px solid var(--line)}
+.step{margin-bottom:24px}
+.step > label,.step > p.q{display:block;font-weight:700;margin-bottom:10px}
+.services{display:grid;gap:10px}
+.svc{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border:1.5px solid var(--line);border-radius:12px;cursor:pointer;background:none;font:inherit;color:inherit;text-align:left;width:100%}
+.svc small{display:block;color:var(--ink-soft);font-size:14px}
+.svc[aria-pressed="true"]{border-color:var(--kumkum);background:#FBF1EC}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.chip{flex:0 0 auto;border:1.5px solid var(--line);background:none;border-radius:12px;padding:8px 12px;cursor:pointer;font:500 15px "Mukta",sans-serif;color:var(--ink);text-align:center;min-width:64px}
+.chip b{display:block;font-size:20px;line-height:1.1}
+.chip[aria-pressed="true"]{background:var(--kumkum);border-color:var(--kumkum);color:var(--white)}
+.chip:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.mode{display:flex;gap:8px;flex-wrap:wrap}
+.summary{display:flex;justify-content:space-between;align-items:center;gap:16px;border-top:1px dashed var(--line);padding-top:20px;flex-wrap:wrap}
+.summary p{font-size:15px;color:var(--ink-soft)}
+.summary strong{display:block;font-size:22px;color:var(--ink)}
+.confirm{display:none;text-align:center;padding:20px 0}
+.confirm svg{width:56px;height:56px;margin:0 auto 12px;color:var(--peacock)}
+.confirm h3{margin-bottom:8px}
+.confirm p{color:var(--ink-soft);margin-bottom:18px}
+.booked .form{display:none}
+.booked .confirm{display:block}
+.side-copy ul{list-style:none;margin:22px 0 28px;display:grid;gap:14px}
+.side-copy li{display:flex;gap:12px}
+.side-copy li svg{flex:0 0 22px;height:22px;color:var(--peacock);margin-top:3px}
+
+/* about */
+.about{background:var(--peacock);color:var(--sandal)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.portrait{aspect-ratio:1;max-height:440px;border-radius:var(--radius-lg);background:rgba(246,231,211,.08);border:1.5px dashed rgba(246,231,211,.4);display:grid;place-items:center;text-align:center;padding:20px;font-size:15px;opacity:.85}
+.about p{opacity:.9;margin-bottom:16px;max-width:52ch}
+.facts{display:flex;gap:34px;margin-top:26px;flex-wrap:wrap}
+.facts b{font-family:"Rozha One",serif;font-weight:400;font-size:34px;color:var(--haldi);display:block;line-height:1}
+
+/* contact & footer */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.form-row{display:grid;gap:6px;margin-bottom:14px}
+.form-row label{font-weight:500;font-size:15px}
+input,textarea,select{font:inherit;padding:12px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--white);color:var(--ink);width:100%}
+textarea{min-height:110px;resize:vertical}
+.reach{display:grid;gap:16px}
+.reach a,.reach div{display:flex;gap:12px;align-items:center;text-decoration:none;font-size:17px}
+.reach svg{width:22px;height:22px;color:var(--kumkum);flex:0 0 22px}
+footer{background:var(--kumkum-2);color:rgba(246,231,211,.75);padding:34px 0 110px;font-size:15px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* floating whatsapp + toast + mobile bar */
+.wa-float{position:fixed;right:22px;bottom:24px;width:58px;height:58px;border-radius:50%;background:#1F8A4C;display:grid;place-items:center;box-shadow:0 8px 24px rgba(31,138,76,.35);z-index:30}
+.wa-float svg{width:30px;height:30px;color:#fff}
+.toast{visibility:hidden;position:fixed;left:50%;bottom:28px;transform:translate(-50%,140%);background:var(--ink);color:var(--sandal);padding:12px 20px;border-radius:999px;font-size:15px;z-index:40;transition:transform .3s}
+.toast.show{visibility:visible;transform:translate(-50%,0)}
+.tabbar{display:none}
+
+@media (max-width:960px){
+  .links{display:none}
+  .hero-grid,.booking,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-grid{padding:40px 20px 56px}
+  .kundli{max-width:360px;margin:0 auto}
+  .kundli-note{margin:12px auto 0}
+  .products{grid-template-columns:repeat(2,1fr);gap:14px}
+  .paths-grid{grid-template-columns:1fr;border-left:0}
+  .path{border-right:0;border-bottom:1px solid var(--line);padding:26px 0}
+  .portrait{aspect-ratio:16/10}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  section.block{padding:60px 0}
+  .course{grid-template-columns:1fr;gap:12px}
+  .course .side{text-align:left;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .course .side .price{margin:0}
+  .date{display:flex;align-items:baseline;gap:8px}
+  .date b{font-size:30px;display:inline}
+  .panel{padding:20px}
+  .product h3{font-size:17px}
+  .add{padding:8px 12px;width:100%}
+  .product .buy{flex-wrap:wrap}
+  .wa-float{display:none}
+  .tabbar{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;background:var(--white);border-top:1px solid var(--line);z-index:30;padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+  .tabbar a{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:12px;text-decoration:none;color:var(--ink-soft);padding:4px}
+  .tabbar svg{width:22px;height:22px}
+  .tabbar a.wa{color:#1F8A4C;font-weight:700}
+  .tabbar a.book{color:var(--kumkum);font-weight:700}
+  .toast{bottom:84px}
+}
+</style>
+</head>
+<body>
+
+<div class="ribbon">Concept design for your astrology website by <b>Luca, NewStartOperation</b>. Brand name, photos and prices are placeholders.</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="none" stroke="#E8A317" stroke-width="2"/><path d="M20 6l3.2 9.8H33l-8 5.8 3 9.6-8-5.9-8 5.9 3-9.6-8-5.8h9.8z" fill="#E8A317"/></svg>
+      <span>Shubh Tara</span>
+    </a>
+    <ul class="links">
+      <li><a href="#top">Home</a></li>
+      <li><a href="#about">About us</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#book">Book consultation</a></li>
+      <li><a href="#contact">Contact us</a></li>
+    </ul>
+    <button class="cart" id="cartBtn" aria-label="Cart, 0 items">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6"/><circle cx="10" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg>
+      <em id="cartCount">0</em>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Your chart, read with care and clarity</h1>
+        <p>Personal consultations, genuine energised products and live classes in Vedic astrology. Book a session in two minutes and pay securely online.</p>
+        <div class="ctas">
+          <a class="btn btn-gold" href="#book">Book a consultation</a>
+          <a class="btn btn-ghost" href="#courses">See live courses</a>
+        </div>
+        <div class="trust">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Secure UPI and card payments</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3"/></svg>Live classes on Zoom or Meet</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg>Replies on WhatsApp</span>
+        </div>
+      </div>
+
+      <div class="kundli-card">
+        <svg class="kundli" viewBox="0 0 400 400" role="img" aria-label="Sample birth chart in the North Indian style">
+          <rect class="frame" x="10" y="10" width="380" height="380" rx="6"/>
+          <path class="grid" d="M10 10L390 390M390 10L10 390M200 10L390 200L200 390L10 200Z"/>
+          <!-- house numbers -->
+          <text class="house" x="196" y="128">1</text><text class="house" x="100" y="40">2</text><text class="house" x="34" y="104">3</text>
+          <text class="house" x="104" y="204">4</text><text class="house" x="34" y="300">5</text><text class="house" x="100" y="368">6</text>
+          <text class="house" x="196" y="282">7</text><text class="house" x="290" y="368">8</text><text class="house" x="360" y="300">9</text>
+          <text class="house" x="290" y="204">10</text><text class="house" x="360" y="104">11</text><text class="house" x="290" y="40">12</text>
+          <!-- planets -->
+          <text class="lagna" x="174" y="98">Lagna</text>
+          <text class="planet" x="172" y="160" style="animation-delay:2.0s">Su  Me</text>
+          <text class="planet" x="86" y="72" style="animation-delay:2.15s">Ve</text>
+          <text class="planet" x="40" y="140" style="animation-delay:2.3s">Ma</text>
+          <text class="planet" x="78" y="232" style="animation-delay:2.45s">Mo</text>
+          <text class="planet" x="186" y="250" style="animation-delay:2.6s">Ju</text>
+          <text class="planet" x="335" y="140" style="animation-delay:2.75s">Sa</text>
+          <text class="planet" x="268" y="232" style="animation-delay:2.9s">Ra</text>
+          <text class="planet" x="98" y="340" style="animation-delay:3.05s">Ke</text>
+        </svg>
+        <p class="kundli-note">Every consultation starts from your own birth chart, prepared before the call.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="paths" aria-label="What you can do here">
+    <div class="wrap paths-grid">
+      <a class="path" href="#book">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 15h3"/></svg>
+        <h3>Book a consultation</h3>
+        <p>Choose a reading, pick a slot, pay online. You get a WhatsApp confirmation straight away.</p>
+        <span class="go">Book now</span>
+      </a>
+      <a class="path" href="#products">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3h12l3 6-9 12L3 9z"/><path d="M3 9h18M9 3l3 18M15 3l-3 18"/></svg>
+        <h3>Shop products</h3>
+        <p>Gemstones, rudraksha and yantras with certificates, delivered across India.</p>
+        <span class="go">Visit the shop</span>
+      </a>
+      <a class="path" href="#courses">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8l10-5 10 5-10 5z"/><path d="M6 10v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg>
+        <h3>Learn astrology</h3>
+        <p>Live batches for beginners and practitioners. Register and pay, and the class link arrives by email.</p>
+        <span class="go">See courses</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="block" id="products">
+    <div class="wrap">
+      <div class="head-row">
+        <div><h2>Products</h2><p class="lede">Each item ships with a certificate of authenticity and simple usage guidance.</p></div>
+        <a href="#products">View all products</a>
+      </div>
+      <div class="products">
+        <article class="product">
+          <div class="pic" style="background:#F3E3C4"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M14 22l8-10h16l8 10-16 26z" fill="#E8A317"/><path d="M14 22h32M22 12l8 36 8-36" fill="none" stroke="#B87C0B" stroke-width="1.5"/></svg></div>
+          <h3>Yellow sapphire (Pukhraj)</h3><p class="sub">5.25 ratti, lab certified</p>
+          <div class="buy"><span class="price">₹4,500 <s>₹5,200</s></span><button class="add" data-name="Yellow sapphire">Add to cart</button></div>
+        </article>
+        <article class="product">
+          <div class="pic" style="background:#EBD9CC"><svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="17" fill="#8A4B2A"/><path d="M30 13v34M21 15c-4 10-4 20 0 30M39 15c4 10 4 20 0 30M15 26c10 2 20 2 30 0M15 34c10-2 20-2 30 0" fill="none" stroke="#5C2E17" stroke-width="1.6"/></svg></div>
+          <h3>Five mukhi rudraksha</h3><p class="sub">Nepal bead, energised</p>
+          <div class="buy"><span class="price">₹799</span><button class="add" data-name="Rudraksha">Add to cart</button></div>
+        </article>
+        <article class="product">
+          <div class="pic" style="background:#F1DCC9"><svg viewBox="0 0 60 60" aria-hidden="true"><rect x="10" y="10" width="40" height="40" fill="none" stroke="#B87C0B" stroke-width="2"/><path d="M30 14l14 24H16z M30 46L16 22h28z" fill="none" stroke="#5A1A2B" stroke-width="1.6"/><circle cx="30" cy="30" r="2.5" fill="#5A1A2B"/></svg></div>
+          <h3>Shri Yantra, copper</h3><p class="sub">6 × 6 inch plate</p>
+          <div class="buy"><span class="price">₹1,250</span><button class="add" data-name="Shri Yantra">Add to cart</button></div>
+        </article>
+        <article class="product">
+          <div class="pic" style="background:#DCE9E7"><svg viewBox="0 0 60 60" aria-hidden="true"><rect x="16" y="9" width="28" height="40" rx="3" fill="#FFFDF9" stroke="#0F5257" stroke-width="2"/><path d="M22 18h16M22 24h16M22 30h10" stroke="#0F5257" stroke-width="2"/><circle cx="40" cy="42" r="8" fill="#E8A317"/></svg></div>
+          <h3>Detailed kundli report</h3><p class="sub">40 page PDF in English or Hindi</p>
+          <div class="buy"><span class="price">₹999</span><button class="add" data-name="Kundli report">Add to cart</button></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block courses-sec" id="courses">
+    <div class="wrap">
+      <div class="head-row">
+        <div><h2>Live courses</h2><p class="lede">Small batches taught live on Zoom or Google Meet. Recordings are shared after each class.</p></div>
+      </div>
+      <div class="courses">
+        <article class="course">
+          <div class="date"><b>02</b><span>November</span></div>
+          <div>
+            <h3>Vedic astrology foundations</h3>
+            <p>Signs, houses, planets and how to read a basic birth chart.</p>
+            <div class="meta"><span class="tag">8 classes</span><span class="tag">Sat and Sun, 7 pm</span><span class="tag">Zoom</span><span class="tag">Hindi and English</span></div>
+          </div>
+          <div class="side"><span class="price">₹3,999</span><a class="btn btn-ink" href="#contact">Register</a><span class="seats">9 seats left</span></div>
+        </article>
+        <article class="course">
+          <div class="date"><b>16</b><span>November</span></div>
+          <div>
+            <h3>Predictive astrology with dashas</h3>
+            <p>Timing events with Vimshottari dasha and transits, with real chart practice.</p>
+            <div class="meta"><span class="tag">12 classes</span><span class="tag">Weekdays, 8 pm</span><span class="tag">Google Meet</span></div>
+          </div>
+          <div class="side"><span class="price">₹6,500</span><a class="btn btn-ink" href="#contact">Register</a><span class="seats">14 seats left</span></div>
+        </article>
+        <article class="course">
+          <div class="date"><b>07</b><span>December</span></div>
+          <div>
+            <h3>Numerology in one weekend</h3>
+            <p>Name and birth numbers, compatibility and practical remedies.</p>
+            <div class="meta"><span class="tag">2 classes</span><span class="tag">Sunday, 11 am</span><span class="tag">Zoom</span></div>
+          </div>
+          <div class="side"><span class="price">₹1,499</span><a class="btn btn-ink" href="#contact">Register</a><span class="seats">Open</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="book">
+    <div class="wrap booking">
+      <div class="side-copy">
+        <h2>Book a consultation</h2>
+        <p class="lede">Share your birth details once. The astrologer studies your chart before the session, so the time is spent on your questions.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Video call, phone call or WhatsApp chat</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Instant confirmation by WhatsApp and email</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Reschedule free up to 12 hours before</li>
+        </ul>
+        <a class="btn btn-wa" href="#book" onclick="toast('This opens WhatsApp chat with you on the live site');return false;">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.2.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
+          Ask on WhatsApp first
+        </a>
+      </div>
+
+      <div class="panel" id="panel">
+        <div class="form">
+          <div class="step">
+            <p class="q" id="svcLabel">Choose a reading</p>
+            <div class="services" role="group" aria-labelledby="svcLabel">
+              <button class="svc" aria-pressed="true" data-price="1100" data-name="Birth chart reading"><span>Birth chart reading<small>45 minutes · career, health, relationships</small></span><b>₹1,100</b></button>
+              <button class="svc" aria-pressed="false" data-price="1500" data-name="Marriage matching"><span>Marriage matching<small>60 minutes · both charts reviewed</small></span><b>₹1,500</b></button>
+              <button class="svc" aria-pressed="false" data-price="501" data-name="Quick question"><span>One quick question<small>20 minutes · one topic</small></span><b>₹501</b></button>
+            </div>
+          </div>
+          <div class="step">
+            <p class="q" id="dayLabel">Pick a day</p>
+            <div class="chips" id="days" role="group" aria-labelledby="dayLabel"></div>
+          </div>
+          <div class="step">
+            <p class="q" id="timeLabel">Pick a time (IST)</p>
+            <div class="chips" id="times" role="group" aria-labelledby="timeLabel"></div>
+          </div>
+          <div class="step">
+            <p class="q" id="modeLabel">How would you like to talk?</p>
+            <div class="mode" role="group" aria-labelledby="modeLabel">
+              <button class="chip" aria-pressed="true" data-mode="Video call">Video call</button>
+              <button class="chip" aria-pressed="false" data-mode="Phone call">Phone call</button>
+              <button class="chip" aria-pressed="false" data-mode="WhatsApp chat">WhatsApp chat</button>
+            </div>
+          </div>
+          <div class="summary">
+            <p id="sumText">Birth chart reading</p>
+            <button class="btn btn-ink" id="payBtn">Pay ₹1,100 and confirm</button>
+          </div>
+        </div>
+        <div class="confirm" role="status">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7 12l3.5 3.5L17 9"/></svg>
+          <h3>Consultation confirmed</h3>
+          <p id="confText">Details are on their way by WhatsApp and email.</p>
+          <button class="btn btn-ink" id="again">Book another</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block about" id="about">
+    <div class="wrap about-grid">
+      <div class="portrait">Your photo goes here</div>
+      <div>
+        <h2>About us</h2>
+        <p>This is where your story goes: how you came to astrology, who you learned from and how you work with clients today.</p>
+        <p>We keep it personal and practical. Every reading ends with clear next steps, and every remedy is explained in plain language.</p>
+        <div class="facts">
+          <div><b>12+</b>years of practice</div>
+          <div><b>3</b>languages</div>
+          <div><b>Pan India</b>delivery</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <h2>Contact us</h2>
+        <p class="lede" style="margin-bottom:26px">Questions about a product, a course or your booking? Write to us and we reply within a day.</p>
+        <div class="reach">
+          <a href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg>WhatsApp +91 00000 00000</a>
+          <a href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>hello@yourbrand.in</a>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Monday to Saturday, 10 am to 7 pm IST</div>
+        </div>
+      </div>
+      <form class="panel" onsubmit="event.preventDefault();toast('Message sent');this.reset();">
+        <div class="form-row"><label for="n">Your name</label><input id="n" required></div>
+        <div class="form-row"><label for="p">Phone or WhatsApp number</label><input id="p" inputmode="tel" required></div>
+        <div class="form-row"><label for="t">Topic</label><select id="t"><option>Product order</option><option>Course</option><option>Consultation</option><option>Something else</option></select></div>
+        <div class="form-row"><label for="m">Message</label><textarea id="m"></textarea></div>
+        <button class="btn btn-ink" type="submit">Send message</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Shubh Tara. Brand name is a placeholder.</span>
+    <span>Concept by Luca, NewStartOperation</span>
+  </div>
+</footer>
+
+<a class="wa-float" href="#book" aria-label="Chat on WhatsApp" onclick="toast('This opens WhatsApp chat with you on the live site');return false;">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.2.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
+</a>
+
+<nav class="tabbar" aria-label="Quick links">
+  <a href="#products"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 3h12l3 6-9 12L3 9z"/></svg>Shop</a>
+  <a href="#courses"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 8l10-5 10 5-10 5z"/><path d="M6 10v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg>Courses</a>
+  <a class="book" href="#book"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Book</a>
+  <a class="wa" href="#book" onclick="toast('This opens WhatsApp chat with you on the live site');return false;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg>WhatsApp</a>
+</nav>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var tEl=document.getElementById('toast'),tTimer;
+  window.toast=function(msg){tEl.textContent=msg;tEl.classList.add('show');clearTimeout(tTimer);tTimer=setTimeout(function(){tEl.classList.remove('show')},2400)};
+
+  // cart
+  var count=0,cartBtn=document.getElementById('cartBtn'),cc=document.getElementById('cartCount');
+  document.querySelectorAll('.add').forEach(function(b){
+    b.addEventListener('click',function(){
+      count++;cc.textContent=count;cartBtn.setAttribute('aria-label','Cart, '+count+' items');
+      cartBtn.classList.remove('bump');void cartBtn.offsetWidth;cartBtn.classList.add('bump');
+      b.textContent='Added';b.classList.add('done');
+      toast(b.dataset.name+' added to cart');
+      setTimeout(function(){b.textContent='Add to cart';b.classList.remove('done')},1600);
+    });
+  });
+
+  // booking
+  var fmt=function(n){return '₹'+n.toLocaleString('en-IN')};
+  var state={svc:'Birth chart reading',price:1100,day:null,time:null,mode:'Video call'};
+  function single(group,btn){group.querySelectorAll('[aria-pressed]').forEach(function(x){x.setAttribute('aria-pressed','false')});btn.setAttribute('aria-pressed','true')}
+
+  var svcs=document.querySelector('.services');
+  svcs.addEventListener('click',function(e){var b=e.target.closest('.svc');if(!b)return;single(svcs,b);state.svc=b.dataset.name;state.price=+b.dataset.price;update()});
+
+  var daysEl=document.getElementById('days'),timesEl=document.getElementById('times');
+  var names=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var d=new Date();d.setDate(d.getDate()+1);
+  for(var i=0;i<7;i++){
+    var b=document.createElement('button');b.className='chip';b.setAttribute('aria-pressed',i===0?'true':'false');
+    b.dataset.label=names[d.getDay()]+' '+d.getDate()+' '+months[d.getMonth()];
+    b.innerHTML=names[d.getDay()]+'<b>'+d.getDate()+'</b>';
+    if(d.getDay()===0){b.disabled=true;b.title='Closed on Sundays'}
+    daysEl.appendChild(b);d.setDate(d.getDate()+1);
+  }
+  var first=daysEl.querySelector('.chip:not(:disabled)');single(daysEl,first);state.day=first.dataset.label;
+  daysEl.addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b||b.disabled)return;single(daysEl,b);state.day=b.dataset.label;renderTimes();update()});
+
+  var slots=['10:00 am','11:30 am','1:00 pm','3:30 pm','5:00 pm','6:30 pm'];
+  function renderTimes(){
+    timesEl.innerHTML='';state.time=null;
+    slots.forEach(function(s,i){
+      var b=document.createElement('button');b.className='chip';b.textContent=s;b.setAttribute('aria-pressed','false');
+      if((i+state.day.length)%4===0){b.disabled=true;b.title='Already booked'}
+      timesEl.appendChild(b);
+    });
+    var f=timesEl.querySelector('.chip:not(:disabled)');single(timesEl,f);state.time=f.textContent;
+  }
+  timesEl.addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b||b.disabled)return;single(timesEl,b);state.time=b.textContent;update()});
+  renderTimes();
+
+  var mode=document.querySelector('.mode');
+  mode.addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;single(mode,b);state.mode=b.dataset.mode;update()});
+
+  var sum=document.getElementById('sumText'),pay=document.getElementById('payBtn'),panel=document.getElementById('panel');
+  function update(){
+    sum.innerHTML='<strong>'+state.svc+'</strong>'+state.day+', '+state.time+' · '+state.mode;
+    pay.textContent='Pay '+fmt(state.price)+' and confirm';
+  }
+  update();
+  pay.addEventListener('click',function(){
+    document.getElementById('confText').textContent=state.svc+' on '+state.day+' at '+state.time+' IST by '+state.mode.toLowerCase()+'. Details are on their way by WhatsApp and email.';
+    panel.classList.add('booked');
+  });
+  document.getElementById('again').addEventListener('click',function(){panel.classList.remove('booked')});
+})();
+</script>
+</body>
+</html>
