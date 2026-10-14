@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bridal Shower Signage Concept</title>
+<meta name="description" content="Concept preview for an elegant, classic bridal shower signage suite at 1.2 m x 2.4 m: welcome sign, seating chart, dessert sign, directional sign and two bar signs. Concept by Luca, NewStartOperation.">
+<meta name="theme-color" content="#F7F2EB">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#F7F2EB; --paper:#FBF8F3; --champagne:#E8DCCC; --blush:#E4CFC4;
+  --taupe:#A8957F; --gold:#B89B6E; --ink:#4A423B; --muted:#7D7166; --line:#DCCFBF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ivory);color:var(--ink);font-family:"Cormorant Garamond",Georgia,serif;font-size:19px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.eyebrow{font-family:Montserrat,sans-serif;font-weight:400;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--taupe)}
+header.hero{text-align:center;padding:72px 0 40px}
+header.hero h1{font-family:"Pinyon Script",cursive;font-weight:400;font-size:clamp(52px,9vw,96px);line-height:1.05;color:var(--ink);margin:18px 0 6px}
+header.hero h2{font-weight:500;font-size:clamp(17px,2.4vw,22px);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.rule{display:flex;align-items:center;justify-content:center;gap:14px;margin:26px auto 0;color:var(--gold)}
+.rule span{display:block;width:70px;height:1px;background:var(--gold);opacity:.7}
+header.hero p.lead{max-width:640px;margin:26px auto 0;font-size:20px;color:var(--muted);font-style:italic}
+
+section{padding:56px 0}
+section .head{text-align:center;margin-bottom:34px}
+section .head h3{font-weight:500;font-size:clamp(28px,4vw,38px);margin-top:10px;line-height:1.2}
+section .head p{color:var(--muted);max-width:620px;margin:10px auto 0;font-style:italic}
+
+/* Venue lineup */
+.lineup{background:linear-gradient(#EFE6DA,#E6DACA);border-radius:4px;padding:40px 28px 0;position:relative;overflow:hidden}
+.lineup .row{display:flex;justify-content:center;align-items:flex-end;gap:2.2%;}
+.lineup .row svg{width:13.6%;height:auto;filter:drop-shadow(0 10px 14px rgba(74,66,59,.18))}
+.lineup .person{width:7.5%;height:auto;opacity:.5}
+.lineup .floor{height:34px;margin:0 -28px;background:linear-gradient(#D7C8B5,#CDBCA7)}
+.lineup .cap{text-align:center;font-family:Montserrat,sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);padding:14px 0 18px}
+
+/* Sign cards */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.card{background:var(--paper);border:1px solid var(--line);padding:22px 22px 20px;cursor:zoom-in;transition:transform .25s ease,box-shadow .25s ease}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(74,66,59,.10)}
+.card svg{width:100%;height:auto;display:block;box-shadow:0 4px 14px rgba(74,66,59,.10)}
+.card .meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;gap:10px}
+.card .meta strong{font-weight:600;font-size:20px}
+.card .meta em{font-family:Montserrat,sans-serif;font-style:normal;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe);white-space:nowrap}
+
+/* Specs */
+.specs{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:start}
+.panel{background:var(--paper);border:1px solid var(--line);padding:30px}
+.panel h4{font-family:Montserrat,sans-serif;font-weight:500;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe);margin-bottom:16px}
+table{width:100%;border-collapse:collapse;font-size:18px}
+td{padding:9px 0;border-bottom:1px solid var(--line);vertical-align:top}
+td:first-child{color:var(--muted);padding-right:18px;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.swatches{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.sw{font-size:15px;line-height:1.35}
+.sw i{display:block;height:58px;border:1px solid var(--line);margin-bottom:8px}
+.sw b{font-weight:600;display:block;font-size:16px}
+.sw small{font-family:Montserrat,sans-serif;font-size:10px;letter-spacing:.06em;color:var(--muted)}
+.type{margin-top:26px;display:grid;gap:12px}
+.type div{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:10px;gap:10px}
+.type div:last-child{border-bottom:0}
+.type .s{font-family:"Pinyon Script",cursive;font-size:34px;line-height:1}
+.type .g{font-size:24px;letter-spacing:.14em;text-transform:uppercase}
+.type .m{font-family:Montserrat,sans-serif;font-size:13px;letter-spacing:.3em;text-transform:uppercase}
+.type small{font-family:Montserrat,sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--taupe);white-space:nowrap}
+
+/* Timeline */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:s}
+.step{border-top:1px solid var(--gold);padding-top:18px}
+.step b{display:block;font-family:Montserrat,sans-serif;font-weight:500;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--taupe);margin-bottom:6px}
+.step span{font-size:18px;color:var(--ink)}
+
+footer{text-align:center;padding:50px 0 70px;color:var(--muted);font-size:16px}
+footer .sig{font-family:"Pinyon Script",cursive;font-size:38px;color:var(--ink);display:block;margin-bottom:4px}
+
+/* Lightbox */
+#lb{position:fixed;inset:0;background:rgba(40,35,31,.86);display:none;align-items:center;justify-content:center;z-index:50;padding:20px;cursor:zoom-out}
+#lb.on{display:flex}
+#lb svg{height:92vh;width:auto;max-width:92vw;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+
+@media (max-width:900px){
+  .grid{grid-template-columns:repeat(2,1fr);gap:20px}
+  .specs{grid-template-columns:1fr}
+  .steps{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  .grid{grid-template-columns:1fr 1fr;gap:12px}
+  .card{padding:10px}
+  .card .meta{flex-direction:column;gap:2px}
+  .card .meta strong{font-size:16px}
+  .lineup{padding:24px 10px 0}
+  .lineup .floor{margin:0 -10px}
+  .swatches{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr}
+  td:first-child{white-space:normal}
+}
+</style>
+</head>
+<body>
+
+<header class="hero wrap">
+  <div class="eyebrow">Concept preview &nbsp;·&nbsp; Large-format signage suite</div>
+  <h1>A Classic Bridal Shower</h1>
+  <h2>Six signs, one collection</h2>
+  <div class="rule"><span></span>
+    <svg width="38" height="14" viewBox="0 0 38 14" fill="none" stroke="currentColor" stroke-width="1"><path d="M1 7h12M25 7h12"/><path d="M19 1c3 3 3 9 0 12c-3-3-3-9 0-12z"/></svg>
+    <span></span></div>
+  <p class="lead">Refined serif typography, a flowing script, soft neutral tones and delicate line-drawn botanicals, all built at 1.2 m × 2.4 m so every piece feels like part of the same room.</p>
+</header>
+
+<section class="wrap" id="venue">
+  <div class="lineup">
+    <div class="row" id="lineupRow"></div>
+    <div class="floor"></div>
+    <div class="cap">The full suite at true relative scale, beside a 1.7 m guest</div>
+  </div>
+</section>
+
+<section class="wrap" id="suite">
+  <div class="head">
+    <div class="eyebrow">The suite</div>
+    <h3>Each piece, up close</h3>
+    <p>Tap any sign to view it larger. Names, date and menu items are placeholders and will be replaced with your details.</p>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="wrap" id="print">
+  <div class="head">
+    <div class="eyebrow">Built for print</div>
+    <h3>Press-ready from the first file</h3>
+  </div>
+  <div class="specs">
+    <div class="panel">
+      <h4>File specification</h4>
+      <table>
+        <tr><td>Trim size</td><td>1200 × 2400 mm, portrait, identical for all six signs</td></tr>
+        <tr><td>Bleed</td><td>5 mm all sides, document size 1210 × 2410 mm</td></tr>
+        <tr><td>Safe zone</td><td>Key text kept 40 mm inside the trim</td></tr>
+        <tr><td>Colour</td><td>CMYK throughout, checked against your printer's profile</td></tr>
+        <tr><td>Resolution</td><td>Vector artwork, so it stays sharp at any size. Raster elements prepared at 300 dpi at full size (14,291 × 28,465 px)</td></tr>
+        <tr><td>Fonts</td><td>Outlined in the print PDF, live text in the source file</td></tr>
+        <tr><td>Delivery</td><td>High-resolution print PDF with crop marks and bleed, plus editable Illustrator source files</td></tr>
+        <tr><td>Licensing</td><td>Fonts are under the SIL Open Font License, free for commercial print. All flourishes are drawn from scratch, so no stock licences are needed</td></tr>
+      </table>
+    </div>
+    <div class="panel">
+      <h4>Palette</h4>
+      <div class="swatches">
+        <div class="sw"><i style="background:#F7F2EB"></i><b>Ivory</b><small>C2 M4 Y7 K0</small></div>
+        <div class="sw"><i style="background:#E8DCCC"></i><b>Champagne</b><small>C8 M12 Y19 K0</small></div>
+        <div class="sw"><i style="background:#E4CFC4"></i><b>Soft blush</b><small>C9 M19 Y21 K0</small></div>
+        <div class="sw"><i style="background:#B89B6E"></i><b>Antique gold</b><small>C28 M37 Y62 K5</small></div>
+        <div class="sw"><i style="background:#A8957F"></i><b>Warm taupe</b><small>C35 M38 Y50 K3</small></div>
+        <div class="sw"><i style="background:#4A423B"></i><b>Espresso ink</b><small>C55 M60 Y65 K45</small></div>
+      </div>
+      <h4 style="margin-top:28px">Typography</h4>
+      <div class="type">
+        <div><span class="s">Bride to Be</span><small>Pinyon Script</small></div>
+        <div><span class="g">Welcome</span><small>Cormorant Garamond</small></div>
+        <div><span class="m">Details</span><small>Montserrat Light</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="plan">
+  <div class="head">
+    <div class="eyebrow">How it would run</div>
+    <h3>From concept to press in about a week</h3>
+  </div>
+  <div class="steps">
+    <div class="step"><b>Day 1</b><span>Your names, date, guest list, menu and venue directions confirmed</span></div>
+    <div class="step"><b>Day 2 to 3</b><span>First draft of the full suite, shown together so it reads as one collection</span></div>
+    <div class="step"><b>Feedback</b><span>Your changes to colour, wording and layout applied across every piece</span></div>
+    <div class="step"><b>Within a week</b><span>Final press-ready PDFs and editable source files, checked for bleed and colour</span></div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span class="sig">Luca</span>
+  Concept by Luca, NewStartOperation. A preview made for this brief; final artwork is built in Illustrator to the specification above.
+</footer>
+
+<div id="lb" aria-hidden="true"></div>
+
+<script>
+const C={ivory:"#F7F2EB",champ:"#E8DCCC",blush:"#E4CFC4",gold:"#B89B6E",taupe:"#A8957F",ink:"#4A423B",muted:"#7D7166"};
+const W=600,H=1200;
+
+/* An original line-drawn sprig: a curved stem with paired leaves */
+function sprig(x,y,s,fx,fy){
+  const leaf="M0 0 C7 -9 19 -10 27 0 C19 10 7 9 0 0Z";
+  const pts=[[18,-4,-38],[34,-10,-46],[50,-18,-52],[66,-28,-58],[80,-39,-64]];
+  let g=`<g transform="translate(${x} ${y}) scale(${fx*s} ${fy*s})" fill="none" stroke="${C.gold}" stroke-width="${1.4/s}" stroke-linecap="round">`;
+  g+=`<path d="M0 0 C30 -6 62 -20 96 -52"/>`;
+  pts.forEach(([px,py,a],i)=>{
+    const sc=0.75+i*0.06;
+    g+=`<path d="${leaf}" transform="translate(${px} ${py}) rotate(${a-34}) scale(${sc})"/>`;
+    g+=`<path d="${leaf}" transform="translate(${px} ${py}) rotate(${a+28}) scale(${sc*0.85})"/>`;
+  });
+  g+=`<path d="${leaf}" transform="translate(96 -52) rotate(-46) scale(1.05)"/>`;
+  g+=`<circle cx="44" cy="-2" r="2.4" fill="${C.blush}" stroke="none"/><circle cx="70" cy="-14" r="2" fill="${C.blush}" stroke="none"/>`;
+  return g+`</g>`;
+}
+/* Shared frame so every sign belongs to the same set */
+function frame(inner){
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img">
+  <defs><radialGradient id="glow" cx="50%" cy="38%" r="75%"><stop offset="0" stop-color="#FBF8F3"/><stop offset="1" stop-color="${C.ivory}"/></radialGradient></defs>
+  <rect width="${W}" height="${H}" fill="url(#glow)"/>
+  <rect x="26" y="26" width="${W-52}" height="${H-52}" fill="none" stroke="${C.gold}" stroke-width="1.6"/>
+  <rect x="36" y="36" width="${W-72}" height="${H-72}" fill="none" stroke="${C.gold}" stroke-width=".7" opacity=".7"/>
+  ${["M36 72 Q36 36 72 36","M528 36 Q564 36 564 72","M564 1128 Q564 1164 528 1164","M72 1164 Q36 1164 36 1128"].map(d=>`<path d="${d}" fill="none" stroke="${C.gold}" stroke-width="1"/>`).join("")}
+  ${sprig(306,74,1.05,1,-1)}${sprig(294,74,1.05,-1,-1)}<circle cx="300" cy="74" r="3.2" fill="${C.gold}"/>
+  ${sprig(306,1126,1.05,1,1)}${sprig(294,1126,1.05,-1,1)}<circle cx="300" cy="1126" r="3.2" fill="${C.gold}"/>
+  ${inner}</svg>`;
+}
+const T=(x,y,txt,o={})=>`<text x="${x}" y="${y}" text-anchor="${o.a||"middle"}" font-family="${o.f||"Cormorant Garamond"}" font-size="${o.s||28}" ${o.w?`font-weight="${o.w}"`:""} ${o.i?'font-style="italic"':""} letter-spacing="${o.ls||0}" fill="${o.c||C.ink}">${txt}</text>`;
+const script=(y,txt,s=92)=>T(300,y,txt,{f:"Pinyon Script",s});
+const caps=(y,txt,s=30,ls=8)=>T(300,y,txt,{s,ls,w:500});
+const small=(y,txt,s=15,ls=5,c=C.muted)=>T(300,y,txt,{f:"Montserrat",s,ls,c,w:300});
+const divider=y=>`<g stroke="${C.gold}" fill="none" stroke-width="1"><path d="M190 ${y}h88M322 ${y}h88"/><path d="M300 ${y-9}c5 5 5 13 0 18c-5-5-5-13 0-18z"/></g>`;
+function arrow(x,y,dir){
+  const rot={right:0,left:180,up:-90,down:90}[dir];
+  return `<g transform="translate(${x} ${y}) rotate(${rot}) scale(1.35)" stroke="${C.gold}" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M-22 0h40"/><path d="M8 -9l10 9l-10 9"/><path d="M-22 0c-5 -5 -10 -5 -14 -2"/></g>`;
+}
+
+const signs=[
+ {name:"Welcome sign",tag:"1 piece",svg:frame(`
+   <circle cx="300" cy="380" r="62" fill="none" stroke="${C.gold}" stroke-width="1.2"/>
+   <circle cx="300" cy="380" r="54" fill="none" stroke="${C.gold}" stroke-width=".6"/>
+   ${T(300,406,"S",{f:"Pinyon Script",s:78})}
+   ${small(550,"WELCOME TO",17,10)}
+   ${script(670,"Sophie's",120)}
+   ${caps(752,"BRIDAL SHOWER",36,10)}
+   ${divider(810)}
+   ${T(300,880,"Saturday, the fourteenth of March",{s:26,i:true,c:C.muted})}
+   ${small(922,"TWO THOUSAND TWENTY SEVEN",13,6)}`)},
+ {name:"Seating chart",tag:"1 piece",svg:frame((()=>{
+   let s=`${script(290,"Find Your Seat",80)}${small(336,"PLEASE FIND YOUR NAME AND TABLE",12,4)}${divider(372)}`;
+   const tables=[["One",["Amelia Brooks","Grace Turner","Olivia Hart","Chloe Bennett","Isla Morgan"]],["Two",["Emily Carter","Ruby Ellis","Mia Holloway","Ava Sinclair","Zoe Whitaker"]],["Three",["Hannah Price","Lily Foster","Ella Graham","Sophie Reid","Leah Dawson"]],["Four",["Charlotte Hayes","Jade Mitchell","Freya Collins","Lucy Ward","Eve Palmer"]],["Five",["Poppy Lawson","Maya Russell","Ivy Chapman","Sienna Cole","Nora Fisher"]],["Six",["Rose Harper","Alice Bennett","Clara Young","Holly Grant","Esme Walsh"]]];
+   tables.forEach(([n,names],i)=>{
+     const x=i%2?425:175,y=440+Math.floor(i/2)*200;
+     s+=T(x,y,"TABLE "+n.toUpperCase(),{s:20,ls:5,w:600});
+     s+=`<path d="M${x-28} ${y+14}h56" stroke="${C.gold}" stroke-width=".8"/>`;
+     names.forEach((nm,j)=>s+=T(x,y+44+j*25,nm,{s:19,c:C.muted,i:true}));
+   });
+   return s;})())},
+ {name:"Dessert area sign",tag:"1 piece",svg:frame(`
+   ${small(420,"THE",17,10)}
+   ${script(560,"Sweet",140)}
+   ${caps(640,"TABLE",38,14)}
+   ${divider(700)}
+   ${T(300,780,"Love is sweet,",{s:32,i:true,c:C.muted})}
+   ${T(300,822,"please take a treat",{s:32,i:true,c:C.muted})}
+   <g transform="translate(300 900)" fill="none" stroke="${C.gold}" stroke-width="1.2"><path d="M-34 0h68"/><path d="M-26 0c0-26 52-26 52 0"/><path d="M0 -26v-10"/><circle cx="0" cy="-39" r="3"/></g>`)},
+ {name:"Directional sign",tag:"1 piece",svg:frame((()=>{
+   let s=`${small(280,"THIS WAY TO",15,9)}${script(372,"Celebrate",96)}${divider(420)}`;
+   const rows=[["The Celebration","up"],["Dessert Table","right"],["The Bar","left"],["Photo Wall","right"],["Gifts and Cards","left"],["Restrooms","right"]];
+   rows.forEach(([t,d],i)=>{
+     const y=510+i*92;
+     const right=d==="right",up=d==="up";
+     s+=T(300,y+9,t.toUpperCase(),{s:23,ls:4,w:500});
+     s+=arrow(d==="left"?108:492,y,d);
+     if(i<rows.length-1)s+=`<path d="M200 ${y+46}h200" stroke="#DCCFBF" stroke-width=".8"/>`;
+   });
+   return s;})())},
+ {name:"Bar sign",tag:"Piece 1 of 2",svg:null},
+ {name:"Bar sign",tag:"Piece 2 of 2, identical",svg:null}
+];
+const bar=frame(`
+   ${small(300,"RAISE A GLASS",15,9)}
+   ${script(420,"Cheers",130)}
+   ${caps(482,"TO THE BRIDE TO BE",24,7)}
+   ${divider(540)}
+   ${[["The Blushing Bride","Rosé, elderflower and sparkling water"],["Champagne Toast","Chilled brut with fresh berries"],["Garden Party","A sparkling cucumber and mint mocktail"]].map(([a,b],i)=>T(300,630+i*120,a,{s:34,w:500})+T(300,668+i*120,b,{s:21,i:true,c:C.muted})).join("")}
+   <g transform="translate(300 975)" fill="none" stroke="${C.gold}" stroke-width="1.2" stroke-linecap="round"><path d="M-30 -40l8 30c2 8 12 8 14 0l8-30z"/><path d="M-15 -4v26M-25 22h20"/><path d="M30 -40l-8 30c-2 8-12 8-14 0l-8-30z" transform="translate(30 0)"/><path d="M45 -4v26M35 22h20"/></g>`);
+signs[4].svg=bar;signs[5].svg=bar;
+
+const person=`<svg class="person" viewBox="0 0 60 340" xmlns="http://www.w3.org/2000/svg" aria-label="1.7 metre guest for scale"><g fill="#A8957F"><circle cx="30" cy="22" r="17"/><path d="M12 48h36c4 0 7 3 7 7l-4 110h-8l-4 170h-12l-1-120l-1 120h-12l-4-170h-8l-4-110c0-4 3-7 7-7z"/></g></svg>`;
+document.getElementById("lineupRow").innerHTML=person+signs.map(s=>s.svg).join("");
+// Person: 1.7 m vs sign 2.4 m -> height ratio 0.708
+requestAnimationFrame(()=>{
+  const row=document.getElementById("lineupRow"),first=row.querySelector("svg:not(.person)"),p=row.querySelector(".person");
+  const fit=()=>{const h=first.getBoundingClientRect().height;p.style.height=(h*1.7/2.4)+"px";p.style.width="auto";};
+  fit();addEventListener("resize",fit);
+});
+
+const grid=document.getElementById("grid"),lb=document.getElementById("lb");
+signs.forEach(s=>{
+  const d=document.createElement("div");d.className="card";
+  d.innerHTML=s.svg+`<div class="meta"><strong>${s.name}</strong><em>${s.tag}</em></div>`;
+  d.onclick=()=>{lb.innerHTML=s.svg;lb.classList.add("on")};
+  grid.appendChild(d);
+});
+lb.onclick=()=>lb.classList.remove("on");
+addEventListener("keydown",e=>{if(e.key==="Escape")lb.classList.remove("on")});
+</script>
+</body>
+</html>
