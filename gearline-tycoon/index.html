@@ -17,7 +17,8 @@
 html,body{margin:0;height:100%;overflow:hidden;background:#9fbad3;font-family:Nunito,system-ui,sans-serif;color:var(--ink)}
 canvas{display:block;touch-action:none}
 #ui{position:fixed;inset:0;pointer-events:none}
-#ui *{pointer-events:auto}
+#hud > *,#bottom > *,#sheet,#modal,#ad,#title{pointer-events:auto}
+#title.hide,#title.hide *{pointer-events:none!important}
 .f{font-family:Fredoka,Nunito,sans-serif}
 .coin{display:inline-block;width:1em;height:1em;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff3b0 0 18%,#ffd34d 30%,#f0a400 75%,#c97f00 100%);box-shadow:inset 0 -2px 0 rgba(0,0,0,.18);vertical-align:-.12em;position:relative}
 .coin::after{content:"";position:absolute;inset:26%;border-radius:50%;border:2px solid rgba(160,95,0,.45)}
@@ -759,7 +760,7 @@ addEventListener('pagehide',save);
 
 /* ================= LOOP ================= */
 let started=false, last=performance.now(), saveClock=0, rt=0;
-$('play').onclick=()=>{ ac(); if(AC&&AC.state==='suspended') AC.resume(); snd('unlock'); $('title').classList.add('hide'); started=true;
+$('play').onclick=()=>{ ac(); if(AC&&AC.state==='suspended') AC.resume(); snd('unlock'); $('title').classList.add('hide'); setTimeout(()=>$('title').style.display='none',450); started=true;
   checkOffline(); checkDaily(); const n=modalQ.shift(); if(n) setTimeout(n,350); };
 function loop(now){
   requestAnimationFrame(loop);
