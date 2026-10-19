@@ -437,17 +437,22 @@ function buildPress(L,li){
   mesh(new THREE.CylinderGeometry(.14,.14,1.4,12), mats.steel, 0,.7,0, piston);
   mesh(RB(1.2,.35,.9,.06), mats.yellow, 0,0,0, piston);
   for(let i=0;i<6;i++) mesh(new THREE.BoxGeometry(.16,.355,.92), mats.black, -.5+i*.2,0,0, piston);
-  // side gear wheels
-  const gw=new THREE.Group(); gw.position.set(1.45,1.3,0); g.add(gw);
-  mesh(RB(.9,2.6,1.2,.1), mats.steelDark, .25,0,0, gw).position.y=0;
-  const big=new THREE.Mesh(GEO.gear, M(0xffc23d,{r:.35,m:.6})); big.scale.setScalar(2.6); big.rotation.z=Math.PI/2; big.position.set(-.25,.55,0); big.castShadow=true; gw.add(big);
-  const small=new THREE.Mesh(GEO.gear, M(0xd8dee6,{r:.35,m:.7})); small.scale.setScalar(1.6); small.rotation.z=Math.PI/2; small.position.set(-.25,-.35,.62); small.castShadow=true; gw.add(small);
+  // side motor housing with a proper flywheel (spins on its own axle)
+  const gw=new THREE.Group(); gw.position.set(1.45,0,0); g.add(gw);
+  mesh(RB(.8,2.3,1.3,.12), mats.steelDark, .1,1.15,0, gw);
+  mesh(RB(.5,.32,.9,.06), mats.dark, .1,2.42,0, gw);
+  const panel=mesh(RB(.06,.5,.7,.03), new THREE.MeshStandardMaterial({color:0x7cf2a6,emissive:0x22c55e,emissiveIntensity:.6,roughness:.4}), .52,1.8,0, gw);
+  const axle=mesh(new THREE.CylinderGeometry(.09,.09,.3,12), mats.steel, .62,1.0,0, gw); axle.rotation.z=Math.PI/2;
+  const fly=new THREE.Group(); fly.position.set(.8,1.0,0); gw.add(fly);
+  const rim=mesh(new THREE.TorusGeometry(.5,.07,10,32), M(0xffc23d,{r:.35,m:.6}), 0,0,0, fly); rim.rotation.y=Math.PI/2;
+  const hub=mesh(new THREE.CylinderGeometry(.13,.13,.16,16), mats.steel, 0,0,0, fly); hub.rotation.z=Math.PI/2;
+  for(let i=0;i<4;i++){ const sp=mesh(new THREE.BoxGeometry(.06,.9,.08), M(0xffc23d,{r:.35,m:.6}), 0,0,0, fly); sp.rotation.x=i*Math.PI/4; }
   g.position.set(L.x,0,POS.press); scene.add(g);
   let a=0;
   return { group:g, anim(dt,work,rt,prog){
     const p = work ? Math.pow(Math.sin(Math.min(1,prog)*Math.PI),3) : 0;
     piston.position.y = 2.85 - p*1.55;
-    a += dt*(work?4:.4); big.rotation.y = a; small.rotation.y = -a*1.6;
+    a += dt*(work?5:.5); fly.rotation.x = a;
   }};
 }
 
@@ -776,7 +781,7 @@ function loop(now){
   updateLabels(); updatePops(dt); updateHUD(dt);
 }
 requestAnimationFrame(loop);
-window.__game = { S, R, give:(n)=>{S.coins+=n;}, start:()=>$('play').click(), openSheet, sync:syncVisuals, step:(n)=>{ for(let i=0;i<n;i++){ for(const r of R) updateLine(r,1/30); } } };
+window.__game = { camera, controls, S, R, give:(n)=>{S.coins+=n;}, start:()=>$('play').click(), openSheet, sync:syncVisuals, step:(n)=>{ for(let i=0;i<n;i++){ for(const r of R) updateLine(r,1/30); } } };
 </script>
 </body>
 </html>
